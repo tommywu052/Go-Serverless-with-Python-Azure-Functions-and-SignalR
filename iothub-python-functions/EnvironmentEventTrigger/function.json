@@ -5,7 +5,7 @@
       "type": "eventHubTrigger",
       "name": "event",
       "direction": "in",
-      "eventHubName": "glovebox-iothub",
+      "eventHubName": "<your compatiable event hub name on IoT Hub",
       "connection": "IoTHubConnectionString",
       "cardinality": "many",
       "consumerGroup": "$Default"
