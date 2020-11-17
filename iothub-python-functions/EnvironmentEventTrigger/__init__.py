@@ -7,6 +7,7 @@ import os
 import random
 import time
 from ..SharedCode import calibrate
+from typing import List
 
 # https://azure.microsoft.com/en-au/blog/managing-concurrency-in-microsoft-azure-storage-2/
 # https://docs.microsoft.com/en-us/python/api/azure-cosmosdb-table/azure.cosmosdb.table.tableservice.tableservice?view=azure-python
@@ -29,15 +30,14 @@ occBase = 40  # 40 milliseconds
 occCap = 1000  # 1000 milliseconds
 
 
-def main(event: func.EventHubEvent):
-
-    messages = json.loads(event.get_body().decode('utf-8'))
-    signalrUpdates = {}
-
-    # Batch calibrate telemetry
-    for telemetry in messages:
+def main(events: List[func.EventHubEvent]):
+    for event in events:
+        messages = json.loads(event.get_body().decode('utf-8'))
+        signalrUpdates = {}
+        # Batch calibrate telemetry
+    #for telemetry in messages:
         try:
-            entity = updateDeviceState(telemetry)
+            entity = updateDeviceState(messages)
             if entity is not None:
                 signalrUpdates[entity.get('DeviceId')] = entity
 
