@@ -44,8 +44,8 @@ def main(events: List[func.EventHubEvent]):
         except Exception as err:
             logging.info('Exception occurred {0}'.format(err))
 
-    for item in signalrUpdates:
-        notifySignalR(signalrUpdates.get(item))
+        for item in signalrUpdates:
+            notifySignalR(signalrUpdates.get(item))
 
 
 def updateDeviceState(telemetry):
