@@ -2,10 +2,10 @@
   "IsEncrypted": false,
   "Values": {
     "FUNCTIONS_WORKER_RUNTIME": "python",
-    "AzureWebJobsStorage": "",
-    "IoTHubConnectionString": "",
-    "PartitionKey": "Sydney",
-    "StorageConnectionString": "",
-    "SignalrUrl": ""
+    "AzureWebJobsStorage": "<blob storage connection string>",
+    "IoTHubConnectionString": "<Put your event hub compatiable end point connection string on IoT Hub>",
+    "PartitionKey": "Taipei",
+    "StorageConnectionString": "<blob storage connection string>",
+    "SignalrUrl": "Azure function url for sending SignalR message"
   }
 }
